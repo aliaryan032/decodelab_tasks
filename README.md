@@ -39,4 +39,4 @@ Select an option (1-3): 3
 Thank you for using the DecodeLabs system. Goodbye!
 
 Author
-**M. Aryan Ali**
+M. Aryan Ali

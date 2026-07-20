@@ -37,3 +37,6 @@ Select an option (1-3): 2
 3. Exit Program
 Select an option (1-3): 3
 Thank you for using the DecodeLabs system. Goodbye!
+
+Author
+**M. Aryan Ali**

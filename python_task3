@@ -1,0 +1,49 @@
+import string
+import secrets
+import math
+
+def main():
+    print("=== DECODELABS ENTERPRISE PASSWORD GENERATOR ===")
+    print("NIST 2024 Guidelines: Minimum 15 characters recommended for high security.\n")
+
+    # 1. INPUT: Validation Phase
+    while True:
+        try:
+            length = int(input("Enter desired password length: "))
+            if length < 1:
+                print("Length must be at least 1.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input! Please enter a whole number.")
+
+    # 2. PROCESS: The Transformation Engine
+    # Pool all characters together using the string module
+    character_pool = string.ascii_letters + string.digits + string.punctuation
+
+    # Generate a list of highly secure random characters
+    # secrets.choice() guarantees cryptographic security
+    password_list = [secrets.choice(character_pool) for _ in range(length)]
+
+    # Assemble the string in O(N) time using .join()
+    secure_password = "".join(password_list)
+
+    # 3. OUTPUT: Mathematical Provision of Security
+    # Calculate Entropy: E = L * log2(R)
+    pool_size = len(character_pool)
+    entropy = length * math.log2(pool_size)
+
+    print("\n-------------------------------------------")
+    print(f"GENERATED PASSWORD: {secure_password}")
+    print("-------------------------------------------")
+    print(f"Password Length (L) : {length} characters")
+    print(f"Character Pool (R)  : {pool_size} possible characters")
+    print(f"Security Entropy (E): {entropy:.2f} bits")
+
+    if length >= 15:
+        print("Status: HIGH SECURITY (NIST 2024 Compliant)")
+    else:
+        print("Status: WARNING (Consider increasing length to 15+ for enterprise security)")
+
+if __name__ == "__main__":
+    main()

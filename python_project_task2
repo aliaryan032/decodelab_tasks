@@ -1,0 +1,37 @@
+def main():
+    # INITIALIZATION: Set the total to 0 OUTSIDE the loop
+    total = 0
+    
+    print("=== DECODELABS EXPENSE TRACKER ===")
+    print("Type 'quit' at any time to stop the machine and see your final bill.\n")
+    
+    #  CONTINUOUS AUDIT LOOP
+    while True:
+        # INPUT: The Gate
+        user_input = input("Enter an expense amount: ")
+        
+        # THE KILL SWITCH (Sentinel Value)
+        if user_input.lower() == 'quit':
+            break
+            
+        # THE DIGITAL POKA-YOKE (Defensive Coding)
+        try:
+            # PROCESS: Transformation Mechanism
+            new_expense = int(user_input)
+            
+            # THE ACCUMULATOR PATTERN
+            total += new_expense
+            print(f"--> Accepted! Current total is: ${total}\n")
+            
+        except ValueError:
+            # Catching bad input like "ten" or letters
+            print("--> Invalid Data! Please enter a valid number.\n")
+            
+    # 3. OUTPUT: The Display
+    print("\n-------------------------")
+    print(f"FINAL TOTAL SPENT: ${total}")
+    print("-------------------------")
+
+
+if __name__ == "__main__":
+    main()
